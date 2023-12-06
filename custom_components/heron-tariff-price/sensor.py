@@ -35,6 +35,11 @@ async def async_setup_platform(
 
 URL = "https://www.heron.gr/prices-generous-guarantee/"
 
+TRANSPORT_SYSTEM = 0.00844
+DISTRIBUTION_NETWORK = 0.01415
+ETEMEAP = 0.017
+YKO = 0.01824
+
 
 class HeronTariffPrice(SensorEntity):
     """Representation of a Sensor."""
@@ -72,6 +77,13 @@ class HeronTariffPrice(SensorEntity):
                 if price_cell:
                     price = price_cell.text.strip()
                     price = price.replace(",", ".")
-                    return float(price)
+                    total = (
+                        float(price)
+                        + TRANSPORT_SYSTEM
+                        + DISTRIBUTION_NETWORK
+                        + ETEMEAP
+                        + YKO
+                    )
+                    return total
 
         return None  # Return None or some default value if the price is not found
