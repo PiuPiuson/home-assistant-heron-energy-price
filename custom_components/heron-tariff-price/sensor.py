@@ -26,7 +26,7 @@ async def async_setup_platform(
     discovery_info: DiscoveryInfoType | None = None,
 ) -> None:
     """Asynchronously set up the sensor platform."""
-    sensor = HeronEnergyPrice()
+    sensor = HeronTariffPrice()
     async_add_entities([sensor], True)
 
     # Schedule the sensor to update every hour
@@ -36,7 +36,7 @@ async def async_setup_platform(
 URL = "https://www.heron.gr/prices-generous-guarantee/"
 
 
-class HeronEnergyPrice(SensorEntity):
+class HeronTariffPrice(SensorEntity):
     """Representation of a Sensor."""
 
     _attr_name = "Energy Price"
@@ -56,9 +56,8 @@ class HeronEnergyPrice(SensorEntity):
 
     async def fetch_new_data(self):
         """Fetch the latest energy price from the Heron website."""
-        url = "https://www.heron.gr/prices-generous-guarantee/"
 
-        async with ClientSession() as session, session.get(url) as response:
+        async with ClientSession() as session, session.get(URL) as response:
             html = await response.text()
 
         soup = BeautifulSoup(html, "html.parser")
