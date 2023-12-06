@@ -1,0 +1,10 @@
+{
+  "domain": "heron_tariff_price",
+  "name": "Heron Tariff Price",
+  "codeowners": ["@piupiuson"],
+  "dependencies": [],
+  "documentation": "https://github.com/PiuPiuson/home-assistant-heron-tariff-price",
+  "iot_class": "cloud_polling",
+  "requirements": ["beautifulsoup4==4.9.3"],
+  "version": "0.1.0"
+}
