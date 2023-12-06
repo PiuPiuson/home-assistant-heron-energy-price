@@ -1,0 +1,10 @@
+{
+  "domain": "heron_energy_price",
+  "name": "Heron Energy Price",
+  "codeowners": ["@piupiuson"],
+  "dependencies": [],
+  "documentation": "https://github.com/home-assistant/example-custom-config/tree/master/custom_components/heron_energy_price/",
+  "iot_class": "cloud_polling",
+  "requirements": ["beautifulsoup4==4.9.3"],
+  "version": "0.1.0"
+}
